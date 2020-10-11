@@ -1,0 +1,29 @@
+package example;
+
+import java.util.*;
+
+public class Lab07Driver {
+    public static void main(String[] args) {
+        boolean b = true;
+
+        String[] months = {"January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"};
+        int[] dom = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        Scanner kb = new Scanner(System.in);
+
+        do {
+            try {
+                System.out.println("Enter an integer between 1 and 12");
+                int t = kb.nextInt();
+                System.out.println("The month is " + months[t - 1] + " the day is " + dom[t - 1]);
+                b = false;
+
+            } catch (ArrayIndexOutOfBoundsException e1) {
+                System.out.println("Out of Bounds");
+            } catch (InputMismatchException e) {
+                System.out.println("Not an integer");
+                kb.nextLine();
+            }
+        } while (b);
+    }
+}
